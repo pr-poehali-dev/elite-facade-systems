@@ -68,46 +68,48 @@ const Index = () => {
         </div>
       </nav>
 
-      <section id="home" className="pt-24 pb-16 px-6">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-            <div className="space-y-8 animate-fade-in">
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                Панорамные окна для элитных застроек
+      <section id="home" className="relative pt-20 pb-0 overflow-hidden">
+        <div className="absolute inset-0 animate-scale-in">
+          <img 
+            src="https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/94a1182d-1bcb-4a79-8619-471f69e22300.jpg"
+            alt="Панорамный вид"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="min-h-[90vh] flex flex-col justify-center items-center text-center">
+            <div className="max-w-5xl space-y-8 animate-fade-in">
+              <h1 className="text-6xl lg:text-8xl font-bold leading-tight text-white drop-shadow-2xl">
+                Широкие горизонты.<br/>Безграничные виды.
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Премиальные фасадные системы из алюминия, дерева и камня. Создаем архитектурные шедевры с безупречным качеством исполнения.
+              <p className="text-2xl lg:text-3xl text-white/90 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">
+                Элитные панорамные окна, которые стирают границы между домом и природой
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+              <div className="flex flex-wrap gap-4 justify-center pt-6">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-12 py-6 text-lg shadow-2xl">
                   Заказать расчет
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 px-8">
-                  Портфолио
+                <Button size="lg" variant="secondary" className="px-12 py-6 text-lg shadow-2xl bg-white/90 hover:bg-white">
+                  Смотреть портфолио
                 </Button>
               </div>
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-                <div>
-                  <div className="text-4xl font-bold text-accent">500+</div>
-                  <div className="text-sm text-muted-foreground mt-1">Реализованных проектов</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-accent">25</div>
-                  <div className="text-sm text-muted-foreground mt-1">Лет гарантии</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-accent">100%</div>
-                  <div className="text-sm text-muted-foreground mt-1">Европейское качество</div>
-                </div>
-              </div>
             </div>
-            <div className="relative animate-scale-in">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-lg" />
-              <img 
-                src="https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/615b615e-4499-471d-9ae9-94801652d4e8.jpg"
-                alt="Панорамные окна"
-                className="rounded-lg shadow-2xl w-full h-[600px] object-cover"
-              />
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 pb-16 -mb-8">
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 shadow-xl text-center">
+              <div className="text-5xl font-bold text-accent mb-2">500+</div>
+              <div className="text-sm text-muted-foreground">Реализованных проектов</div>
+            </div>
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 shadow-xl text-center">
+              <div className="text-5xl font-bold text-accent mb-2">25</div>
+              <div className="text-sm text-muted-foreground">Лет гарантии</div>
+            </div>
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 shadow-xl text-center">
+              <div className="text-5xl font-bold text-accent mb-2">100%</div>
+              <div className="text-sm text-muted-foreground">Европейское качество</div>
             </div>
           </div>
         </div>
