@@ -87,7 +87,7 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen ${currentTheme.bgClass} transition-all duration-700`}>
-      <div className="fixed top-4 right-4 z-50 flex gap-3">
+      <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
         <Button
           size="sm"
           onClick={() => setCurrentStyle('classic')}
@@ -125,7 +125,7 @@ const Index = () => {
             <a href="#products" className={`text-sm hover:${currentTheme.accentClass} transition-colors`}>Продукция</a>
             <a href="#contact" className={`text-sm hover:${currentTheme.accentClass} transition-colors`}>Контакты</a>
           </div>
-          <Button className={currentTheme.buttonClass}>
+          <Button className={`${currentTheme.buttonClass} font-bold tracking-wider uppercase text-lg px-8`}>
             Консультация
           </Button>
         </div>
