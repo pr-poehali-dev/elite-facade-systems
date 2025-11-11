@@ -87,7 +87,7 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen ${currentTheme.bgClass} transition-all duration-700`}>
-      <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
+      <div className="fixed top-24 right-4 z-50 flex flex-col gap-2">
         <Button
           size="sm"
           onClick={() => setCurrentStyle('classic')}
@@ -112,12 +112,12 @@ const Index = () => {
       </div>
 
       <nav className={`fixed top-0 left-0 right-0 z-40 ${currentStyle === 'minimal' ? 'bg-white/95' : 'bg-black/60'} backdrop-blur-sm border-b ${currentStyle === 'minimal' ? 'border-gray-200' : 'border-white/10'}`}>
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center">
             <img 
               src="https://cdn.poehali.dev/files/d494bc9a-c278-4782-b5f4-01791bfbf790.png"
               alt="INFACADE"
-              className={`h-12 ${currentStyle === 'minimal' ? '' : 'invert'}`}
+              className={`h-10 ${currentStyle === 'minimal' ? '' : 'invert'}`}
             />
           </div>
           <div className={`hidden md:flex items-center gap-8 ${currentTheme.textClass}`}>
@@ -125,9 +125,11 @@ const Index = () => {
             <a href="#products" className={`text-sm hover:${currentTheme.accentClass} transition-colors`}>Продукция</a>
             <a href="#contact" className={`text-sm hover:${currentTheme.accentClass} transition-colors`}>Контакты</a>
           </div>
-          <Button className={`${currentTheme.buttonClass} font-bold tracking-wider uppercase text-lg px-8`}>
-            Консультация
-          </Button>
+          <div className="flex items-center">
+            <Button className={`${currentTheme.buttonClass} font-bold tracking-wider uppercase h-10 px-8`}>
+              Консультация
+            </Button>
+          </div>
         </div>
       </nav>
 
