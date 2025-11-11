@@ -50,6 +50,27 @@ const Index = () => {
     }
   ];
 
+  const professionals = [
+    {
+      icon: "Compass",
+      title: "Для архитекторов",
+      description: "Технические чертежи, 3D-модели, расчеты нагрузок. Полная поддержка на этапе проектирования.",
+      benefits: ["BIM-модели", "Техническая документация", "Консультации инженеров"]
+    },
+    {
+      icon: "Palette",
+      title: "Для дизайнеров",
+      description: "Образцы материалов, каталоги цветов RAL, визуализация решений в вашем интерьере.",
+      benefits: ["Библиотека материалов", "Кастомизация профилей", "Шоу-рум в Москве"]
+    },
+    {
+      icon: "Building2",
+      title: "Для застройщиков",
+      description: "Оптовые цены, гибкие условия оплаты, соблюдение сроков. Работаем с крупными объектами.",
+      benefits: ["Специальные цены", "Логистика на объект", "Гарантия поставок"]
+    }
+  ];
+
   const styles = {
     classic: {
       bgClass: "bg-gradient-to-br from-slate-900 via-slate-800 to-black",
@@ -62,14 +83,14 @@ const Index = () => {
       subtitle: "Безграничные виды."
     },
     modern: {
-      bgClass: "bg-gradient-to-br from-sky-900 via-blue-800 to-indigo-950",
-      accentClass: "text-blue-300",
-      buttonClass: "bg-blue-400 text-white hover:bg-blue-500",
-      cardClass: "bg-white/10 backdrop-blur-md border-blue-300/30",
-      textClass: "text-white",
+      bgClass: "bg-white",
+      accentClass: "text-slate-700",
+      buttonClass: "bg-slate-800 text-white hover:bg-slate-900",
+      cardClass: "bg-slate-50 border-slate-200",
+      textClass: "text-slate-900",
       heroImage: "https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/ec1ec23e-de23-4bb9-9be1-c2c8a4f06863.jpg",
-      title: "Океан возможностей.",
-      subtitle: "Бесконечный простор."
+      title: "Профессиональные решения.",
+      subtitle: "Для вашего проекта."
     },
     minimal: {
       bgClass: "bg-gradient-to-br from-gray-50 to-white",
@@ -98,7 +119,7 @@ const Index = () => {
         <Button
           size="sm"
           onClick={() => setCurrentStyle('modern')}
-          className={currentStyle === 'modern' ? 'bg-blue-400 text-white hover:bg-blue-500' : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'}
+          className={currentStyle === 'modern' ? 'bg-slate-800 text-white hover:bg-slate-900' : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'}
         >
           Модерн
         </Button>
@@ -140,7 +161,7 @@ const Index = () => {
             alt="Панорамный вид"
             className="w-full h-full object-cover transition-opacity duration-700"
           />
-          <div className={`absolute inset-0 ${currentStyle === 'minimal' ? 'bg-white/70' : 'bg-black/60'}`} />
+          <div className={`absolute inset-0 ${currentStyle === 'modern' ? 'bg-white/80' : currentStyle === 'minimal' ? 'bg-white/70' : 'bg-black/60'}`} />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -150,8 +171,8 @@ const Index = () => {
                 {currentTheme.title}<br/>
                 <span className={currentTheme.accentClass}>{currentTheme.subtitle}</span>
               </h1>
-              <p className={`text-2xl lg:text-3xl ${currentStyle === 'minimal' ? 'text-gray-700' : 'text-white/90'} leading-relaxed drop-shadow-lg max-w-3xl mx-auto`}>
-                Элитные панорамные окна, которые стирают границы между домом и природой
+              <p className={`text-2xl lg:text-3xl ${currentStyle === 'modern' ? 'text-slate-600' : currentStyle === 'minimal' ? 'text-gray-700' : 'text-white/90'} leading-relaxed drop-shadow-lg max-w-3xl mx-auto`}>
+                {currentStyle === 'modern' ? 'Комплексные решения для архитектурных проектов любой сложности' : 'Элитные панорамные окна, которые стирают границы между домом и природой'}
               </p>
               <div className="flex flex-wrap gap-4 justify-center pt-6">
                 <Button size="lg" className={`${currentTheme.buttonClass} px-12 py-6 text-lg shadow-2xl`}>
@@ -160,7 +181,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className={`px-12 py-6 text-lg shadow-2xl ${currentStyle === 'minimal' ? 'bg-white border-black text-black hover:bg-gray-100' : 'bg-white/10 border-white text-white hover:bg-white/20'}`}
+                  className={`px-12 py-6 text-lg shadow-2xl ${currentStyle === 'modern' ? 'bg-white border-slate-800 text-slate-800 hover:bg-slate-50' : currentStyle === 'minimal' ? 'bg-white border-black text-black hover:bg-gray-100' : 'bg-white/10 border-white text-white hover:bg-white/20'}`}
                 >
                   Смотреть портфолио
                 </Button>
@@ -171,37 +192,77 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 pb-16 -mb-8">
             <div className={`${currentTheme.cardClass} rounded-lg p-8 shadow-xl text-center border`}>
               <div className={`text-5xl font-bold ${currentTheme.accentClass} mb-2`}>500+</div>
-              <div className={`text-sm ${currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Реализованных проектов</div>
+              <div className={`text-sm ${currentStyle === 'modern' ? 'text-slate-600' : currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Реализованных проектов</div>
             </div>
             <div className={`${currentTheme.cardClass} rounded-lg p-8 shadow-xl text-center border`}>
               <div className={`text-5xl font-bold ${currentTheme.accentClass} mb-2`}>25</div>
-              <div className={`text-sm ${currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Лет гарантии</div>
+              <div className={`text-sm ${currentStyle === 'modern' ? 'text-slate-600' : currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Лет гарантии</div>
             </div>
             <div className={`${currentTheme.cardClass} rounded-lg p-8 shadow-xl text-center border`}>
               <div className={`text-5xl font-bold ${currentTheme.accentClass} mb-2`}>100%</div>
-              <div className={`text-sm ${currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Европейское качество</div>
+              <div className={`text-sm ${currentStyle === 'modern' ? 'text-slate-600' : currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}`}>Европейское качество</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={`py-16 ${currentStyle === 'minimal' ? 'bg-gray-50' : 'bg-black/20'}`}>
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantages.map((advantage, index) => (
-              <Card key={index} className={`${currentTheme.cardClass} border shadow-lg hover:shadow-xl transition-shadow`}>
-                <CardContent className="p-6 space-y-3">
-                  <div className={`w-12 h-12 ${currentStyle === 'minimal' ? 'bg-black/5' : 'bg-white/10'} rounded-full flex items-center justify-center`}>
-                    <Icon name={advantage.icon} className={currentTheme.accentClass} size={24} />
-                  </div>
-                  <h3 className={`text-xl font-semibold ${currentTheme.textClass}`}>{advantage.title}</h3>
-                  <p className={currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}>{advantage.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+      {currentStyle === 'modern' ? (
+        <section className="py-24 px-6 bg-slate-50">
+          <div className="container mx-auto">
+            <div className="text-center mb-16 space-y-4">
+              <h2 className="text-5xl lg:text-6xl font-bold text-slate-900">Работаем с профессионалами</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Индивидуальные условия и поддержка для архитекторов, дизайнеров и застройщиков
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {professionals.map((prof, index) => (
+                <Card key={index} className="bg-white border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-10 space-y-6">
+                    <div className="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center">
+                      <Icon name={prof.icon} className="text-white" size={32} />
+                    </div>
+                    <h3 className="text-3xl font-bold text-slate-900">{prof.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-lg">{prof.description}</p>
+                    <div className="pt-4 border-t border-slate-200">
+                      <ul className="space-y-3">
+                        {prof.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Icon name="Check" className="text-slate-700 mt-1" size={20} />
+                            <span className="text-slate-700">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 mt-6">
+                      Узнать подробнее
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className={`py-16 ${currentStyle === 'minimal' ? 'bg-gray-50' : 'bg-black/20'}`}>
+          <div className="container mx-auto px-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {advantages.map((advantage, index) => (
+                <Card key={index} className={`${currentTheme.cardClass} border shadow-lg hover:shadow-xl transition-shadow`}>
+                  <CardContent className="p-6 space-y-3">
+                    <div className={`w-12 h-12 ${currentStyle === 'minimal' ? 'bg-black/5' : 'bg-white/10'} rounded-full flex items-center justify-center`}>
+                      <Icon name={advantage.icon} className={currentTheme.accentClass} size={24} />
+                    </div>
+                    <h3 className={`text-xl font-semibold ${currentTheme.textClass}`}>{advantage.title}</h3>
+                    <p className={currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/70'}>{advantage.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section id="products" className="py-24 px-6">
         <div className="container mx-auto">
