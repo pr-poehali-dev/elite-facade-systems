@@ -155,13 +155,13 @@ const Index = () => {
       </nav>
 
       <section id="home" className="relative pt-20 pb-0 overflow-hidden">
-        <div className="absolute inset-0 animate-scale-in opacity-40">
+        <div className={`absolute inset-0 animate-scale-in ${currentStyle === 'modern' ? 'opacity-60' : 'opacity-40'}`}>
           <img 
             src={currentTheme.heroImage}
             alt="Панорамный вид"
             className="w-full h-full object-cover transition-opacity duration-700"
           />
-          <div className={`absolute inset-0 ${currentStyle === 'modern' ? 'bg-white/80' : currentStyle === 'minimal' ? 'bg-white/70' : 'bg-black/60'}`} />
+          <div className={`absolute inset-0 ${currentStyle === 'modern' ? 'bg-white/50' : currentStyle === 'minimal' ? 'bg-white/70' : 'bg-black/60'}`} />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
