@@ -56,21 +56,30 @@ const Index = () => {
       accentClass: "text-amber-400",
       buttonClass: "bg-amber-400 text-black hover:bg-amber-500",
       cardClass: "bg-white/5 backdrop-blur-sm border-amber-400/20",
-      textClass: "text-white"
+      textClass: "text-white",
+      heroImage: "https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/94a1182d-1bcb-4a79-8619-471f69e22300.jpg",
+      title: "Широкие горизонты.",
+      subtitle: "Безграничные виды."
     },
     modern: {
-      bgClass: "bg-gradient-to-br from-blue-950 via-indigo-900 to-violet-950",
-      accentClass: "text-cyan-400",
-      buttonClass: "bg-cyan-400 text-black hover:bg-cyan-500",
-      cardClass: "bg-white/10 backdrop-blur-md border-cyan-400/30",
-      textClass: "text-white"
+      bgClass: "bg-gradient-to-br from-sky-900 via-blue-800 to-indigo-950",
+      accentClass: "text-blue-300",
+      buttonClass: "bg-blue-400 text-white hover:bg-blue-500",
+      cardClass: "bg-white/10 backdrop-blur-md border-blue-300/30",
+      textClass: "text-white",
+      heroImage: "https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/ec1ec23e-de23-4bb9-9be1-c2c8a4f06863.jpg",
+      title: "Океан возможностей.",
+      subtitle: "Бесконечный простор."
     },
     minimal: {
-      bgClass: "bg-white",
-      accentClass: "text-black",
-      buttonClass: "bg-black text-white hover:bg-gray-800",
-      cardClass: "bg-gray-50 border-gray-200",
-      textClass: "text-black"
+      bgClass: "bg-gradient-to-br from-gray-50 to-white",
+      accentClass: "text-gray-900",
+      buttonClass: "bg-gray-900 text-white hover:bg-gray-800",
+      cardClass: "bg-white border-gray-200 shadow-sm",
+      textClass: "text-gray-900",
+      heroImage: "https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/600bcb91-a058-4047-9145-36b4f11c964f.jpg",
+      title: "Город у ваших ног.",
+      subtitle: "Элегантность высоты."
     }
   };
 
@@ -78,28 +87,25 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen ${currentTheme.bgClass} transition-all duration-700`}>
-      <div className="fixed top-4 right-4 z-50 flex gap-2">
+      <div className="fixed top-4 right-4 z-50 flex gap-3">
         <Button
           size="sm"
-          variant={currentStyle === 'classic' ? 'default' : 'outline'}
           onClick={() => setCurrentStyle('classic')}
-          className="bg-amber-400 text-black hover:bg-amber-500"
+          className={currentStyle === 'classic' ? 'bg-amber-400 text-black hover:bg-amber-500' : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'}
         >
           Классика
         </Button>
         <Button
           size="sm"
-          variant={currentStyle === 'modern' ? 'default' : 'outline'}
           onClick={() => setCurrentStyle('modern')}
-          className="bg-cyan-400 text-black hover:bg-cyan-500"
+          className={currentStyle === 'modern' ? 'bg-blue-400 text-white hover:bg-blue-500' : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'}
         >
           Модерн
         </Button>
         <Button
           size="sm"
-          variant={currentStyle === 'minimal' ? 'default' : 'outline'}
           onClick={() => setCurrentStyle('minimal')}
-          className="bg-black text-white hover:bg-gray-800"
+          className={currentStyle === 'minimal' ? 'bg-gray-900 text-white hover:bg-gray-800' : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'}
         >
           Минимал
         </Button>
@@ -111,7 +117,7 @@ const Index = () => {
             <img 
               src="https://cdn.poehali.dev/files/d494bc9a-c278-4782-b5f4-01791bfbf790.png"
               alt="INFACADE"
-              className={`h-8 ${currentStyle === 'minimal' ? '' : 'invert'}`}
+              className={`h-12 ${currentStyle === 'minimal' ? '' : 'invert'}`}
             />
           </div>
           <div className={`hidden md:flex items-center gap-8 ${currentTheme.textClass}`}>
@@ -128,9 +134,9 @@ const Index = () => {
       <section id="home" className="relative pt-20 pb-0 overflow-hidden">
         <div className="absolute inset-0 animate-scale-in opacity-40">
           <img 
-            src="https://cdn.poehali.dev/projects/9dedde89-42cf-4aa3-8b0b-8c9f771d1dc3/files/94a1182d-1bcb-4a79-8619-471f69e22300.jpg"
+            src={currentTheme.heroImage}
             alt="Панорамный вид"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-opacity duration-700"
           />
           <div className={`absolute inset-0 ${currentStyle === 'minimal' ? 'bg-white/70' : 'bg-black/60'}`} />
         </div>
@@ -139,8 +145,8 @@ const Index = () => {
           <div className="min-h-[90vh] flex flex-col justify-center items-center text-center">
             <div className="max-w-5xl space-y-8 animate-fade-in">
               <h1 className={`text-6xl lg:text-8xl font-bold leading-tight ${currentTheme.textClass} drop-shadow-2xl`}>
-                Широкие горизонты.<br/>
-                <span className={currentTheme.accentClass}>Безграничные виды.</span>
+                {currentTheme.title}<br/>
+                <span className={currentTheme.accentClass}>{currentTheme.subtitle}</span>
               </h1>
               <p className={`text-2xl lg:text-3xl ${currentStyle === 'minimal' ? 'text-gray-700' : 'text-white/90'} leading-relaxed drop-shadow-lg max-w-3xl mx-auto`}>
                 Элитные панорамные окна, которые стирают границы между домом и природой
@@ -265,7 +271,7 @@ const Index = () => {
           <img 
             src="https://cdn.poehali.dev/files/d494bc9a-c278-4782-b5f4-01791bfbf790.png"
             alt="INFACADE"
-            className={`h-6 mx-auto mb-4 ${currentStyle === 'minimal' ? '' : 'invert'}`}
+            className={`h-8 mx-auto mb-4 ${currentStyle === 'minimal' ? '' : 'invert'}`}
           />
           <p className={`text-sm ${currentStyle === 'minimal' ? 'text-gray-600' : 'text-white/50'}`}>
             © 2024 INFACADE. Остекление и фасады. Все права защищены.
